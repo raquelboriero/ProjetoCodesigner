@@ -1,0 +1,39 @@
+/* tudo o que estiver dentro do * aplica-se a todos os elementos do html*/
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+/*devemos nos basear pelos breakpoints do Grid Options*/
+@media screen and (min-width: 320px){
+    .jl-page-wrapper{
+        width: 100%;
+        height: 100vh; /* vh pega a altura total da view(tela)*/
+    }
+}
+
+@media screen and (min-width: 576px){
+
+}
+
+@media screen and (min-width: 768px){
+
+}
+
+@media screen and (min-width: 992px){
+
+}
+
+@media screen and (min-width: 1200px){
+
+}
+
+/*essas 2 ultimas são opcionais para resoluções mais altas*/
+@media screen and (min-width: 1364px){
+
+}
+
+@media screen and (min-width: 1600px){
+
+}
