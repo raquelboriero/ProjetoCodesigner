@@ -1,39 +1,59 @@
 /* tudo o que estiver dentro do * aplica-se a todos os elementos do html*/
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /*devemos nos basear pelos breakpoints do Grid Options*/
-@media screen and (min-width: 320px){
-    .jl-page-wrapper{
-        width: 100%;
-        height: 100vh; /* vh pega a altura total da view(tela)*/
-    }
+@media screen and (min-width: 320px) {
+  .jl-page-wrapper {
+    width: 100%;
+    height: 100vh; /* vh pega a altura total da view(tela)*/
+    display: block;
+    background-color: #1c1c1c;
+    border: 30px solid #000;
+  }
+  .jl-topbar {
+    width: 100%;
+    height: 110px;
+    display: block;
+    background-color: transparent;
+    position: fixed; /* para fixar no topo (top: 0)*/
+    top: 0;
+    left: 0; /*começar a partir do ponto 0 a esquerda*/
+  }
+  .jl-logo {
+    width: 74px;
+    height: 110px;
+    float: left;
+    margin-left: 60px;
+    background-color: #2ccb69;
+    border-radius: 0 0 37px 0;
+  }
+  .jl-logo img {
+    width: 46px;
+    height: 31px;
+    display: block;
+    margin: 55 auto 0 auto;
+  }
 }
 
-@media screen and (min-width: 576px){
-
+@media screen and (min-width: 576px) {
 }
 
-@media screen and (min-width: 768px){
-
+@media screen and (min-width: 768px) {
 }
 
-@media screen and (min-width: 992px){
-
+@media screen and (min-width: 992px) {
 }
 
-@media screen and (min-width: 1200px){
-
+@media screen and (min-width: 1200px) {
 }
 
 /*essas 2 ultimas são opcionais para resoluções mais altas*/
-@media screen and (min-width: 1364px){
-
+@media screen and (min-width: 1364px) {
 }
 
-@media screen and (min-width: 1600px){
-
+@media screen and (min-width: 1600px) {
 }
