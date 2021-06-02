@@ -1,5 +1,6 @@
 //Declarando variáveis
 var btnContact = document.querySelector('.jl-btn-contact');
+var btnMensage = document.querySelector('.jl-btn-block');
 
 //page preloader
 window.addEventListener('load', function(){
@@ -25,3 +26,5 @@ btnContact.addEventListener('click', function () {
     boxContact.classList.toggle('jl-is-open');
     this.classList.toggle('jl-change-icon');
 })
+
+
