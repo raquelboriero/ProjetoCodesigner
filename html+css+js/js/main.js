@@ -42,3 +42,15 @@ for (var i = 0; i < toggleModal.length; i++) {
     
 }
 
+// animando elementos on Scroll com Waypoints
+var mySrcollDown = document.querySelector('.jl-scroll-down')
+var waypoint = new Waypoint(
+    {
+    element: mySrcollDown,
+    handler: function() {
+      mySrcollDown.classList.toggle('jl-fade-out')
+    },
+    offset: '80%'
+  })
+
+
