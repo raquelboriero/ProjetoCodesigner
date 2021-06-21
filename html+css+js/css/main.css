@@ -424,6 +424,26 @@ p, label {
     font-size: 32px;
   }
 
+  .jl-slider-container {
+    display: block;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .jl-slider-list {
+    width: auto;
+    height: 700px;
+    display: block;
+    background-color: deeppink;
+    list-style: none;
+  }
+
+  .jl-slider-item {
+    display: block;
+    height: 500px;
+    float: left;
+  }
+
 
 }
 
@@ -670,4 +690,20 @@ p, label {
 .jl-no-radius-right {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+.yellow {
+  background-color: yellow;
+}
+.purple {
+  background-color: purple;
+}
+.blue {
+  background-color: blue;
 }

@@ -4,7 +4,7 @@ var toggleModal = document.querySelectorAll('.jl-toggle-modal')
 
 
 //page preloader
-window.addEventListener('load', function(){
+window.addEventListener('load', function(){    //addEventListener adiciona um evento
     var pagePreloader = document.querySelector('.jl-preloader');
     pagePreloader.classList.add('jl-fade-out');
 
@@ -52,5 +52,8 @@ var waypoint = new Waypoint(
     },
     offset: '80%'
   })
+
+
+
 
 
