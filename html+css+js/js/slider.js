@@ -4,7 +4,16 @@
 var sliderContainer = document.querySelector('.jl-slider-container');
 var sliderList = document.querySelector('.jl-slider-list');
 var sliderItem = document.querySelectorAll('.jl-slider-item');
+const sliderTotalItems = sliderItem.length;
 var sliderListWidth = null;
+var prevItem = document.querySelector('.jl-item-prev');
+var nextItem = document.querySelector('.jl-item-next');
+var sliderPos = 0;
+var currentSlide = document.querySelector('.jl-current-slide');
+var totalSlide = document.querySelector('.jl-total-slide');
+var currentCounter = 1;
+var navItems = document.querySelectorAll('.jl-item-navigator a')
+
 
 //Capturando larguras individuais
 var containerWidth = sliderContainer.parentElement.offsetWidth; // "sliderContainer pq o elemento pai está acima dele. OffsetWidth: propriedade para capturar a largura do elemento pai   ClientWidth, não considera o padding"
@@ -23,11 +32,6 @@ sliderList.style.width = sliderListWidth + 'px' //passamos a soma de todas as la
 
 
 //Fazendo animação do slider onClick
-
-var prevItem = document.querySelector('.jl-item-prev');
-var nextItem = document.querySelector('.jl-item-next');
-var sliderPos = 0;
-
 
 //HANDLERS
 
@@ -57,16 +61,71 @@ var prevSlideAnim = function() {
            });  
 }
 
-//Troca Counter
+//Counter Formater
+var counterFormater = function (n) { //(adicionar o zero no número do contador)
+    if (n < 10) {
+        return '0'+n
+    } else {
+        return n
+    }
+}
 
-//Troca Active Navigator
+
+//Counter add and remove
+
+var counterAdd = function () {
+    if ((currentCounter >= 0) && (currentCounter < sliderTotalItems)) {
+        currentCounter++;
+        currentSlide.innerHTML = counterFormater(currentCounter);
+    }
+
+}
+
+var counterRemove = function () {
+    if ((currentCounter >= 2) && (currentCounter <= sliderTotalItems)) {
+        currentCounter--;
+        currentSlide.innerHTML = counterFormater(currentCounter);
+    } 
+}
+
+//Set Active Nav
+
+var setActiveNav = function () {
+    for (var nv = 0; nv < navItems.length; nv++) {
+        let myNavNum = parseInt(navItems[nv].getAttribute('data-nav'));
+        if (myNavNum === currentCounter) {
+            navItems[nv].classList.add('jl-item-active');
+
+            anime({
+                targets: '.jl-item-active',
+                width: 90
+              });    
+        } 
+    }
+}
+
+var changeActive = function () {
+    for (var rm = 0; rm < navItems.length; rm++){
+        navItems[rm].classList.remove('jl-item-active');
+        
+    }
+
+    setActiveNav();
+}
 
 
+//ACTIONS
+
+totalSlide.innerHTML = counterFormater(sliderTotalItems);
 
 nextItem.addEventListener('click', function() {
     nextSlideAnim();
+    counterAdd();   
+    changeActive();
 })
 
 prevItem.addEventListener('click', function() {
     prevSlideAnim();
+    counterRemove();
+    changeActive();
 })
