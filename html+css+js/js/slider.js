@@ -12,7 +12,8 @@ var sliderPos = 0;
 var currentSlide = document.querySelector('.jl-current-slide');
 var totalSlide = document.querySelector('.jl-total-slide');
 var currentCounter = 1;
-var navItems = document.querySelectorAll('.jl-item-navigator a')
+var navItems = document.querySelectorAll('.jl-item-navigator a');
+var navCounter = document.querySelector('.jl-navigator-counter span');
 
 
 //Capturando larguras individuais
@@ -77,14 +78,16 @@ var counterAdd = function () {
     if ((currentCounter >= 0) && (currentCounter < sliderTotalItems)) {
         currentCounter++;
         currentSlide.innerHTML = counterFormater(currentCounter);
+        navCounter.innerHTML = counterFormater(currentCounter);
     }
 
 }
 
 var counterRemove = function () {
-    if ((currentCounter >= 2) && (currentCounter <= sliderTotalItems)) {
+    if ((currentCounter > 1) && (currentCounter <= sliderTotalItems)) {
         currentCounter--;
         currentSlide.innerHTML = counterFormater(currentCounter);
+        navCounter.innerHTML = counterFormater(currentCounter);
     } 
 }
 
@@ -107,6 +110,10 @@ var setActiveNav = function () {
 var changeActive = function () {
     for (var rm = 0; rm < navItems.length; rm++){
         navItems[rm].classList.remove('jl-item-active');
+        anime({
+            targets: navItems[rm],
+            width: 20
+          });  
         
     }
 
